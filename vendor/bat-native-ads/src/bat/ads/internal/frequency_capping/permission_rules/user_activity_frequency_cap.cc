@@ -28,6 +28,17 @@ double GetPointsForEventType(const UserActivityEventType event_type) {
     case UserActivityEventType::kBrowserWindowDidEnterBackground: {
       return 0.5;
     }
+
+    case UserActivityEventType::kClickedLink:
+    case UserActivityEventType::kTypedUrl:
+    case UserActivityEventType::kBookmark:
+    case UserActivityEventType::kTypedAndSelectedNonUrl:
+    case UserActivityEventType::kSubmittedForm:
+    case UserActivityEventType::kReloaded:
+    case UserActivityEventType::kKeywordOtherThanDefaultSearchProvider:
+    case UserActivityEventType::kGeneratedKeyword: {
+      return 0.0;
+    }
   }
 }
 
